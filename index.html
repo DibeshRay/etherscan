@@ -30,7 +30,9 @@
             white-space: pre-wrap;
             word-break: break-all;
             background-color: #f1f1f1;
-            padding: 10px;
+            padding: 15px; /* Increase padding for better readability on mobile */
+            font-size: 14px; /* Decrease font size for better readability on mobile */
+            overflow-x: auto; /* Enable horizontal scrolling on mobile if needed */
         }
     </style>
 </head>
@@ -40,6 +42,11 @@
     <input type="text" id="contractAddress" placeholder="Enter contract address">
     <button onclick="getSourceCode()">Get Source Code</button>
     <div id="sourceCodeResult"></div>
+
+    <script>
+        // JavaScript functions remain unchanged
+        // ...
+
 
     <script>
         function getSourceCode() {

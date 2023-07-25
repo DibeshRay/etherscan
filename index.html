@@ -35,14 +35,17 @@
     </style>
 </head>
 <body>
+    
     <h1>Etherscan Contract Source Code Viewer</h1>
+    <br>
+    <p>Gas Price: <span id="gasPrice">Fetching...</span> Gwei</p>
     <label for="contractAddress">Contract Address:</label>
     <input type="text" id="contractAddress" placeholder="Enter contract address">
     <button onclick="getSourceCode()">Get Source Code</button>
     <div id="sourceCodeResult"></div>
 
 
-    <p>Gas Price: <span id="gasPrice">Fetching...</span> Gwei</p>
+    
 
     <script>
         function getSourceCode() {

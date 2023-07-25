@@ -30,9 +30,7 @@
             white-space: pre-wrap;
             word-break: break-all;
             background-color: #f1f1f1;
-            padding: 15px; /* Increase padding for better readability on mobile */
-            font-size: 14px; /* Decrease font size for better readability on mobile */
-            overflow-x: auto; /* Enable horizontal scrolling on mobile if needed */
+            padding: 10px;
         }
     </style>
 </head>
@@ -44,14 +42,9 @@
     <div id="sourceCodeResult"></div>
 
     <script>
-        // JavaScript functions remain unchanged
-        // ...
-
-
-    <script>
         function getSourceCode() {
             const contractAddress = document.getElementById('contractAddress').value;
-            const apiKey = '8YUX8ETXVV5Y6YNWCN6TECQXSXAZTVRFPS'; // Replace with your actual API key
+            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
             const apiUrl = `https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${contractAddress}&apikey=${apiKey}`;
 
             fetch(apiUrl)

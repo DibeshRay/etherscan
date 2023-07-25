@@ -41,6 +41,9 @@
     <button onclick="getSourceCode()">Get Source Code</button>
     <div id="sourceCodeResult"></div>
 
+
+    <p>Gas Price: <span id="gasPrice">Fetching...</span> Gwei</p>
+
     <script>
         function getSourceCode() {
             const contractAddress = document.getElementById('contractAddress').value;
@@ -77,6 +80,34 @@
                 <p>${message}</p>
             `;
         }
+        function getGasPrice() {
+            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+            const gasOracleUrl = `https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${apiKey}`;
+
+            fetch(gasOracleUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "1" && data.message === "OK") {
+                        const gasPrice = data.result.ProposeGasPrice;
+                        displayGasPrice(gasPrice);
+                    } else {
+                        displayGasPrice('Error');
+                    }
+                })
+                .catch(error => {
+                    displayGasPrice('Error');
+                });
+        }
+
+        function displayGasPrice(gasPrice) {
+            const gasPriceElement = document.getElementById('gasPrice');
+            gasPriceElement.textContent = gasPrice;
+        }
+
+        // Automatically fetch gas price when the page loads
+        getGasPrice();
+            
+        
     </script>
 </body>
 </html>
